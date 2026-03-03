@@ -1,0 +1,373 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+#root {
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  height: 100%;
+}
+
+body {
+  font-family: 'Poppins', sans-serif;
+  margin: 0;
+  min-height: 100%;
+  /* Remove flex from here to avoid layout bugs on long pages */
+}
+
+.app-container {
+  min-height: 100vh;
+  /* Changed height: 100vh to min-height */
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+}
+
+/* .app-container {
+  width: 100%;
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+} */
+
+/* @font-face {
+  font-family: 'Poppins';
+  src: url('./assets/fonts/Poppins-Medium.ttf') format('truetype');
+  font-weight: 500;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Poppins';
+  src: url('./assets/fonts/Poppins-Bold.ttf') format('truetype');
+  font-weight: 700;
+  font-style: normal;
+} */
+
+/* .content-wrapper {
+  background: #f0f3bd;
+  border-radius: 16px;
+  padding: 50px;
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+  max-width: 600px;
+  width: 100%;
+  animation: slideUp 0.6s ease-out;
+}
+
+@font-face {
+  font-family: 'Poppins';
+  src: url('./assets/fonts/Poppins-Regular.ttf') format('truetype');
+  font-weight: 400;
+  font-style: normal;
+}
+
+
+
+@keyframes slideUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.header {
+  text-align: center;
+  margin-bottom: 40px;
+}
+
+.header h1 {
+  font-size: 32px;
+  color: #2d3748;
+  margin-bottom: 12px;
+  font-weight: 700;
+}
+
+.header p {
+  font-size: 16px;
+  color: rgba(0, 0, 0, 0.5);
+  line-height: 1.6;
+}
+
+.form-container {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.input-wrapper {
+  display: flex;
+  gap: 12px;
+  align-items: stretch;
+}
+
+.meeting-input {
+  flex: 1;
+  padding: 14px 18px;
+  border: none;
+  border-radius: 10px;
+  font-size: 16px;
+  background-color: transparent;
+  color: #2d3748;
+  transition: all 0.3s ease;
+  font-family: inherit;
+}
+
+.meeting-input:focus {
+  outline: none;
+  border-color: rgba(102, 126, 234, 0.5);
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+}
+
+.meeting-input:disabled {
+  background-color: transparent;
+  cursor: not-allowed;
+  color: #a0aec0;
+}
+
+.meeting-input::placeholder {
+  color: rgba(102, 126, 234, 0.7);
+}
+
+.submit-button {
+  padding: 14px 28px;
+  background: linear-gradient(135deg, #00a896 0%, #028090 100%);
+  color: white;
+  border: none;
+  border-radius: 10px;
+  font-size: 16px;
+  font-weight: 600;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  transition: all 0.3s ease;
+  font-family: inherit;
+  white-space: nowrap;
+}
+
+.submit-button:hover:not(:disabled) {
+  transform: translateY(-2px);
+  box-shadow: 0 10px 25px rgba(38, 70, 83, 0.4);
+}
+
+.submit-button:active:not(:disabled) {
+  transform: translateY(0);
+}
+
+.submit-button:disabled {
+  opacity: 0.8;
+  cursor: not-allowed;
+}
+
+.icon-spin {
+  animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+  from {
+    transform: rotate(0deg);
+  }
+
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.status-message {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 14px 16px;
+  border-radius: 10px;
+  font-size: 15px;
+  font-weight: 500;
+  animation: slideUp 0.4s ease-out;
+}
+
+.status-success {
+  background-color: #f0fdf4;
+  color: #166534;
+  border: 1px solid #bbf7d0;
+}
+
+.status-error {
+  background-color: #fef2f2;
+  color: #991b1b;
+  border: 1px solid #fecaca;
+}
+
+.status-message svg {
+  flex-shrink: 0;
+}
+
+@media (max-width: 600px) {
+  .content-wrapper {
+    padding: 30px 20px;
+  }
+
+  .header h1 {
+    font-size: 24px;
+  }
+
+  .input-wrapper {
+    flex-direction: column;
+  }
+
+  .submit-button {
+    width: 100%;
+  }
+} */
+
+/* ═══════════════════════════════════════════════════════════ */
+/*               SONNER TOAST — THEME-AWARE STYLES            */
+/* ═══════════════════════════════════════════════════════════ */
+
+/* ── Container ─────────────────────────────────────────────── */
+[data-sonner-toaster] {
+  --normal-bg: var(--bg-header);
+  --normal-border: var(--border-secondary);
+  --normal-text: var(--text-primary);
+
+  /* success colours — accent-tinted */
+  --success-bg: var(--bg-header);
+  --success-border: var(--border-secondary);
+  --success-text: var(--text-primary);
+
+  /* error colours */
+  --error-bg: var(--bg-header);
+  --error-border: var(--border-secondary);
+  --error-text: var(--text-primary);
+
+  /* warning colours */
+  --warning-bg: var(--bg-header);
+  --warning-border: var(--border-secondary);
+  --warning-text: var(--text-primary);
+
+  /* info colours */
+  --info-bg: var(--bg-header);
+  --info-border: var(--border-secondary);
+  --info-text: var(--text-primary);
+}
+
+/* ── Base toast card ───────────────────────────────────────── */
+[data-sonner-toast] {
+  font-family: 'Poppins', sans-serif !important;
+  background: var(--bg-header) !important;
+  border: 1px solid var(--border-secondary) !important;
+  color: var(--text-primary) !important;
+  border-radius: var(--radius-md) !important;
+  box-shadow: var(--shadow-soft) !important;
+  padding: 0.85rem 1.1rem !important;
+  gap: 0.65rem !important;
+  position: relative;
+  overflow: hidden;
+}
+
+/* Coloured left accent bar shared by all types */
+[data-sonner-toast]::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 0;
+  bottom: 0;
+  width: 3px;
+  border-radius: var(--radius-md) 0 0 var(--radius-md);
+  background: var(--color-accent);
+}
+
+/* ── Per-type accent bars ──────────────────────────────────── */
+[data-sonner-toast][data-type="success"]::before {
+  background: #22c55e;
+}
+
+[data-sonner-toast][data-type="error"]::before {
+  background: #ef4444;
+}
+
+[data-sonner-toast][data-type="warning"]::before {
+  background: #f59e0b;
+}
+
+[data-sonner-toast][data-type="info"]::before {
+  background: var(--color-accent);
+}
+
+[data-sonner-toast][data-type="loading"]::before {
+  background: var(--text-secondary);
+}
+
+/* ── Toast title & description ─────────────────────────────── */
+[data-sonner-toast] [data-title] {
+  color: var(--text-primary) !important;
+  font-weight: 600 !important;
+  font-size: 0.875rem !important;
+}
+
+[data-sonner-toast] [data-description] {
+  color: var(--text-secondary) !important;
+  font-size: 0.78rem !important;
+}
+
+/* ── Icons ─────────────────────────────────────────────────── */
+[data-sonner-toast] [data-icon] {
+  color: var(--color-accent) !important;
+}
+
+[data-sonner-toast][data-type="success"] [data-icon] {
+  color: #22c55e !important;
+}
+
+[data-sonner-toast][data-type="error"] [data-icon] {
+  color: #ef4444 !important;
+}
+
+[data-sonner-toast][data-type="warning"] [data-icon] {
+  color: #f59e0b !important;
+}
+
+/* ── Close button ──────────────────────────────────────────── */
+[data-sonner-toast-close-button] {
+  background: var(--bg-header-alt) !important;
+  border: 1px solid var(--border-secondary) !important;
+  color: var(--text-secondary) !important;
+  border-radius: var(--radius-sm) !important;
+  transition: background 0.15s, color 0.15s !important;
+}
+
+[data-sonner-toast-close-button]:hover {
+  background: var(--bg-input) !important;
+  color: var(--text-primary) !important;
+}
+
+/* ── Action buttons inside toasts ──────────────────────────── */
+[data-sonner-toast] [data-button] {
+  background: var(--color-primary) !important;
+  color: var(--text-primary) !important;
+  border-radius: var(--radius-sm) !important;
+  font-family: 'Poppins', sans-serif !important;
+  font-size: 0.78rem !important;
+  font-weight: 600 !important;
+  transition: background 0.2s !important;
+}
+
+[data-sonner-toast] [data-button]:hover {
+  background: var(--color-primary-hover) !important;
+}
+
+/* ── Loading spinner colour ────────────────────────────────── */
+[data-sonner-toast][data-type="loading"] svg {
+  color: var(--text-secondary) !important;
+}

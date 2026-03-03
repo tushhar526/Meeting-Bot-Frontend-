@@ -1,0 +1,127 @@
+.input-container {
+    margin-bottom: 0;
+    width: 100%;
+}
+
+.input-label {
+    display: block;
+    margin-bottom: 5px;
+    font-size: 13.5px;
+    font-weight: 500;
+    color: var(--text-primary);
+    font-family: 'Poppins';
+}
+
+/* Wrapper needed for absolute-positioning the eye button */
+.input-wrapper {
+    position: relative;
+    width: 100%;
+}
+
+.input-password-wrapper .input-field {
+    padding-right: 44px;
+    /* make room for the eye button */
+}
+
+.input-eye-toggle {
+    position: absolute;
+    right: 12px;
+    top: 50%;
+    transform: translateY(-50%);
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 0;
+    color: var(--text-secondary);
+    display: flex;
+    align-items: center;
+    transition: color 0.2s ease;
+}
+
+.input-eye-toggle:hover {
+    color: var(--color-accent);
+}
+
+.input-field {
+    width: 100%;
+    box-sizing: border-box;
+    padding: 10px 14px;
+    border-radius: var(--radius-md);
+    border: 1.5px solid var(--border-secondary);
+    outline: none;
+    font-size: 14px;
+    background-color: var(--bg-input);
+    font-family: 'Poppins', sans-serif;
+    color: var(--text-primary);
+    transition: all 0.2s ease-in-out;
+}
+
+.input-field::placeholder {
+    color: var(--text-secondary);
+    font-weight: 400;
+}
+
+.input-field:focus {
+    border-color: var(--color-accent);
+    box-shadow: 0 0 0 4px rgba(89, 131, 146, 0.1);
+    background-color: var(--bg-input);
+}
+
+.input-field:hover:not(:disabled):not(:focus) {
+    border-color: var(--color-accent);
+}
+
+/* ── Validation error state ─────────────────────────────── */
+.input-field.input-error {
+    border-color: #e53e3e;
+    box-shadow: 0 0 0 3px rgba(229, 62, 62, 0.12);
+}
+
+/* ── Slide-from-behind error animation ─────────────────── */
+.input-error-wrapper {
+    overflow: hidden;
+    max-height: 0;
+    transition: max-height 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.input-error-wrapper.active {
+    max-height: 48px;
+}
+
+.input-error-message {
+    margin: 5px 2px 0;
+    font-size: 13px;
+    color: #e53e3e;
+    font-family: 'Poppins', sans-serif;
+    transform: translateY(-100%);
+    opacity: 0;
+    transition:
+        transform 0.28s cubic-bezier(0.4, 0, 0.2, 1),
+        opacity 0.28s ease;
+}
+
+.input-error-wrapper.active .input-error-message {
+    transform: translateY(0);
+    opacity: 1;
+}
+
+
+/* InputComponent.css */
+
+/* 1. Remove the "Eye" icon in Microsoft Edge */
+.input-field::-ms-reveal {
+    display: none;
+}
+
+/* 2. Remove the "X" clear button in Microsoft Edge/IE */
+.input-field::-ms-clear {
+    display: none;
+}
+
+/* 3. Just in case: handle Chrome's password manager icons too */
+.input-field::-webkit-contacts-auto-fill-button,
+.input-field::-webkit-credentials-auto-fill-button {
+    display: none !important;
+    visibility: hidden;
+    pointer-events: none;
+}

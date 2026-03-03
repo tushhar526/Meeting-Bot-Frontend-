@@ -1,0 +1,191 @@
+/* Theme-aware toast styles using CSS variables from ThemeCssVariable.tsx */
+
+/* Base toast container */
+[data-sonner-toaster] {
+  --width: 356px;
+  --font-family: inherit;
+  --border-radius: var(--radius-lg);
+  --background: var(--bg-header);
+  --border: 1px solid var(--border-primary);
+  --box-shadow: var(--shadow-soft);
+  --normal-bg: var(--bg-header);
+  --normal-border: var(--border-primary);
+  --normal-text: var(--text-primary);
+  --success-bg: var(--color-primary);
+  --success-border: var(--color-primary);
+  --success-text: white;
+  --info-bg: var(--color-accent);
+  --info-border: var(--color-accent);
+  --info-text: white;
+  --warning-bg: #f59e0b;
+  --warning-border: #f59e0b;
+  --warning-text: white;
+  --error-bg: #ef4444;
+  --error-border: #ef4444;
+  --error-text: white;
+}
+
+/* Toast container */
+[data-sonner-toaster][data-x-position="right"] {
+  right: max(16px, env(safe-area-inset-right));
+  left: auto;
+}
+
+[data-sonner-toaster][data-y-position="top"] {
+  top: max(16px, env(safe-area-inset-top));
+  bottom: auto;
+}
+
+/* Individual toast items */
+[data-sonner-toast] {
+  background: var(--normal-bg);
+  border: var(--normal-border);
+  color: var(--normal-text);
+  border-radius: var(--border-radius);
+  box-shadow: var(--box-shadow);
+  padding: 12px 16px;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  font-family: var(--font-family);
+  font-size: 14px;
+  line-height: 1.5;
+  backdrop-filter: blur(12px);
+  transition: all 0.15s ease-in-out;
+}
+
+/* Success toast */
+[data-sonner-toast][data-type="success"] {
+  background: var(--success-bg);
+  border-color: var(--success-border);
+  color: var(--success-text);
+}
+
+/* Error toast */
+[data-sonner-toast][data-type="error"] {
+  background: var(--error-bg);
+  border-color: var(--error-border);
+  color: var(--error-text);
+}
+
+/* Info toast */
+[data-sonner-toast][data-type="info"] {
+  background: var(--info-bg);
+  border-color: var(--info-border);
+  color: var(--info-text);
+}
+
+/* Warning toast */
+[data-sonner-toast][data-type="warning"] {
+  background: var(--warning-bg);
+  border-color: var(--warning-border);
+  color: var(--warning-text);
+}
+
+/* Loading toast */
+[data-sonner-toast][data-type="loading"] {
+  background: var(--normal-bg);
+  border-color: var(--normal-border);
+  color: var(--normal-text);
+}
+
+/* Toast icon styling */
+[data-sonner-toast] [data-icon] {
+  flex-shrink: 0;
+  width: 20px;
+  height: 20px;
+}
+
+/* Toast content */
+[data-sonner-toast] [data-content] {
+  flex: 1;
+  word-break: break-word;
+}
+
+/* Toast close button */
+[data-sonner-toast] [data-close-button] {
+  position: absolute;
+  right: 8px;
+  top: 8px;
+  width: 20px;
+  height: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: var(--radius-sm);
+  background: transparent;
+  border: none;
+  color: var(--text-secondary);
+  cursor: pointer;
+  opacity: 0.7;
+  transition: opacity 0.15s ease-in-out;
+}
+
+[data-sonner-toast] [data-close-button]:hover {
+  opacity: 1;
+}
+
+/* Toast title */
+[data-sonner-toast] [data-title] {
+  font-weight: 600;
+  margin-bottom: 2px;
+}
+
+/* Toast description */
+[data-sonner-toast] [data-description] {
+  font-size: 13px;
+  opacity: 0.8;
+}
+
+/* Loading spinner */
+[data-sonner-toast][data-type="loading"] [data-icon] {
+  animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+/* Responsive adjustments */
+@media (max-width: 640px) {
+  [data-sonner-toaster] {
+    --width: calc(100vw - 32px);
+    left: 16px;
+    right: 16px;
+  }
+  
+  [data-sonner-toast] {
+    padding: 10px 14px;
+    font-size: 13px;
+  }
+}
+
+/* Dark mode specific adjustments */
+@media (prefers-color-scheme: dark) {
+  [data-sonner-toast] {
+    backdrop-filter: blur(16px);
+  }
+}
+
+/* High contrast mode support */
+@media (prefers-contrast: high) {
+  [data-sonner-toast] {
+    border-width: 2px;
+  }
+}
+
+/* Reduced motion support */
+@media (prefers-reduced-motion: reduce) {
+  [data-sonner-toast] {
+    transition: none;
+  }
+  
+  [data-sonner-toast][data-type="loading"] [data-icon] {
+    animation: none;
+  }
+}
